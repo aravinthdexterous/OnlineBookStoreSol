@@ -1,0 +1,166 @@
+﻿
+@{
+    ViewBag.Title = "CartItems";
+}
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+<h1> Cart Items </h1>
+<div class="cart-container">
+    <table>
+        <tr>
+            <th style="width:10%"> Remove </th>
+            <th style="width:40%"> Book </th>
+            <th style="width:15%"> Price </th>
+            <th style="width:17%"> Quantity </th>
+            <th style="width:20%"> Subtotal </th>
+
+        </tr>
+        
+        <tr>
+            <td> <i class="bx bx-trash cart-remove"> </i> </td>
+            <td>
+                <div class="cart-info">
+                    <img src="~/Content/Images/Purananooru.png" />
+                   <div class="cart-details">
+                       <p style="font-size: 20px"> Book Name : Purananooru </p>
+                       <p style="font-size: 17px"> Written By : Balakrishna </p>
+                       <p style="font-size: 17px"> Book Written in tamil language </p>
+                       <a class="more-info-btn" href="#" style="font-size: 20px"> More Info </a>
+                   </div>
+                </div>
+            </td>
+        <td style="font-size: 18px" class="cart-price"> ₹1234.56 </td>
+        <td> <input type="number" value="1" class="cart-quantity" min="1" id="txtQty"/> </td>
+        <td style="font-size: 18px" class="sub-total" id="lblTotalAmount"> 1234.56 </td>
+        </tr>
+    </table>
+    <div class="total-price">
+        <table>
+            <tr>
+                <td style="width:49%"> Subtotal </td>
+                <td> ₹12.99 </td>
+            </tr>
+            <tr>
+                <td> Tax </td>
+                <td> ₹1.99 </td>
+            </tr>
+            <tr>
+                <td> Total </td>
+                <td> ₹123.56 </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<style>
+    p, td {
+        color: #555555;
+        font-weight: 700;
+    }
+
+    .cart-container {
+        margin-left: 30px;
+        margin-right: 80px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .cart-info {
+        display: flex;
+        text-align: left;
+    }
+
+    td, th {
+        border: 2px solid #dddddd;
+        text-align: center;
+        padding: 6.5px;
+    }
+
+    th {
+        color: #fff;
+        background-color: crimson;
+    }
+
+    .cart-remove {
+        font-size: 28px;
+        color: crimson;
+        cursor: pointer;
+    }
+
+    td input {
+        width: 40px;
+        height: 30px;
+        padding: 5px;
+        font-size: 15px;
+    }
+
+    td input:focus {
+        outline: 1px solid crimson;
+    }
+
+    .more-info-btn {
+        background-color: #008CBA;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 19px;
+        padding: 5px 25px;
+    }
+
+    td img {
+        width: 150px;
+        height: 210px;
+        margin-right: 10px;
+        text-align: left;
+    }
+
+    .total-price {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .total-price table {
+        border-top: 3px solid crimson;
+        width: 100%;
+        margin-top: 10px;
+        max-width: 482px;
+    }
+
+    td:last-child {
+        text-align: center;
+    }
+
+    th:last-child {
+        text-align: center;
+    }
+</style>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("[id*=txtQty]").val("0");
+    });
+    $("body").on("change keyup", "[id*=txtQty]", function () {
+        var qty = parseFloat($.trim($(this).val()));
+        if (isNaN(qty)) {
+            qty = 1;
+        }
+
+        $(this).val(qty);
+
+        //check row wise total
+        var row = $(this).closest("tr");
+        $("[id*=lblTotalAmount]", row).html(parseFloat($(".sub-total", row).html()) * parseFloat($(this).val()));
+
+        //check total billled amount
+        var billedTotal = 0;
+        $("[id*=lblTotalAmount]").each(function () {
+            billedTotal = billedTotal + parseFloat($(this).html());
+        });
+        $("[id*=lblTotalBilledAmount]").html(billedTotal.toString());
+    })
+</script>

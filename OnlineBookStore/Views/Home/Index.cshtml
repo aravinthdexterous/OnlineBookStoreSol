@@ -1,0 +1,474 @@
+﻿@model  List<OnlineBookStore.Models.Product>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/font-awesome.css" rel="stylesheet" />
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" />
+@Styles.Render("~/Content/IndexStyleSheet.css")
+<div class="home">
+    <div class="row">
+        <div class="col-2">
+            <div class="content">
+                <h1> Upto 50% Off </h1>
+                <p>
+                    Bagavath Geetha by A.S.BakthiVethanthaSami, Devi Bagavatham by Meenakshi Ammal, Garuda Puranam by Kalkatha R.Guruprasath<br>
+                    Ponniyin Selvan by Ammarar Kalki
+                </p>
+                <a href="#" class="btn"> Buy Now &#8594; </a>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="swiper book-slider">
+                <div class="swiper-wrapper">
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[0].BookID})" class="swiper-slide"> <img src="@Url.Content(Model[0].Image_1)" /> </a>
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[1].BookID})" class="swiper-slide"> <img src="@Url.Content(Model[1].Image_1)" /> </a>
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[2].BookID})" class="swiper-slide"> <img src="@Url.Content(Model[2].Image_1)" /> </a>
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[3].BookID})" class="swiper-slide"> <img src="@Url.Content(Model[3].Image_1)" /> </a>
+                </div>
+                <img src="~/Content/Images/stand.png" class="stand" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Books -->
+<div class="featured" id="feature">
+    <h1 class="heading"> <span> Featured Books </span> </h1>
+    <div class="swiper featured-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide box" width="100px">
+                <!-- 1 -->
+                <div class="image">
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[4].BookID})"><img src="@Url.Content(Model[4].Image_1)" /></a>
+                </div>
+                <div class="details">
+                    <h3> Featured book </h3>
+                    <div class="price"> ₹@Model[4].Price <span> ₹5000.99 </span> </div>
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[4].BookID })" class="btn"> Shop Now </a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <!-- 2 -->
+                <div class="image">
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[5].BookID})"><img src="@Url.Content(Model[5].Image_1)" /></a>
+                </div>
+                <div class="details">
+                    <h3> Featured book </h3>
+                    <div class="price"> ₹@Model[5].Price <span> ₹2000.99 </span> </div>
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[5].BookID })" class="btn"> Shop Now </a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <!-- 3 -->
+                <div class="image">
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[6].BookID})"><img src="@Url.Content(Model[6].Image_1)" /></a>
+                </div>
+                <div class="details">
+                    <h3> Featured book </h3>
+                    <div class="price"> ₹@Model[6].Price <span> ₹2000.99 </span> </div>
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[6].BookID })" class="btn"> Shop Now </a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <!-- 4 -->
+                <div class="image">
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[7].BookID})"><img src="@Url.Content(Model[7].Image_1)" /></a>
+                </div>
+                <div class="details">
+                    <h3> Featured book </h3>
+                    <div class="price"> ₹@Model[7].Price <span> ₹1210.99 </span> </div>
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[7].BookID })" class="btn"> Shop Now </a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <!-- 5 -->
+                <div class="image">
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[8].BookID})"><img src="@Url.Content(Model[8].Image_1)" /></a>
+                </div>
+                <div class="details">
+                    <h3> Featured book </h3>
+                    <div class="price"> ₹@Model[8].Price <span> ₹2200.99 </span> </div>
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[8].BookID })" class="btn"> Shop Now </a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <!-- 6 -->
+                <div class="image">
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[9].BookID})"><img src="@Url.Content(Model[9].Image_1)" /></a>
+                </div>
+                <div class="details">
+                    <h3> Featured book </h3>
+                    <div class="price"> ₹@Model[9].Price <span> ₹1900.99 </span> </div>
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[9].BookID })" class="btn"> Shop Now </a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <!-- 7 -->
+                <div class="image">
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[10].BookID})"><img src="@Url.Content(Model[10].Image_1)" /></a>
+                </div>
+                <div class="details">
+                    <h3> Featured book </h3>
+                    <div class="price"> ₹@Model[10].Price <span> ₹3010.99 </span> </div>
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[10].BookID })" class="btn"> Shop Now </a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <!-- 8 -->
+                <div class="image">
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[11].BookID})"><img src="@Url.Content(Model[11].Image_1)" /></a>
+                </div>
+                <div class="details">
+                    <h3> Featured book </h3>
+                    <div class="price"> ₹@Model[11].Price <span> ₹9200.99 </span> </div>
+                    <a href="@Url.Action("ProductInfo", "Product", new { id = Model[11].BookID })" class="btn"> Shop Now </a>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div>
+
+<!-- deal Offer -->
+<div class="deal">
+    <div class="small-container">
+        <h3> Deal of the Day </h3>
+        <h1> Upto 10% off</h1>
+        <p> Humans learn by association. Every concept that you understand is connected to earlier concept. </p>
+        <a href="@Url.Action("ProductInfo", "Product", new { id = Model[12].BookID })" class="btn"> Shop Now &#8594 </a>
+    </div>
+    <div class="image">
+        <a href="@Url.Action("ProductInfo", "Product", new { id = Model[12].BookID})"><img src="~/Content/Images/the tangled mind.png" /></a>
+    </div>
+</div>
+
+<!-- Arrival Section -->
+<div class="arrival" id="Arrival">
+    <h1 class="heading"> <span> New Arrivals </span> </h1>
+    <div class="swiper arrivals-slider">
+        <div class="swiper-wrapper">
+            <a href="@Url.Action("ProductInfo", "Product", new { id = Model[13].BookID})" class="swiper-slide box">
+                <!--1-->
+                <div class="image">
+                    <img src="@Url.Content(Model[13].Image_1)" />
+                </div>
+                <div class="content">
+                    <h3> New Arrival </h3>
+                    <div class="price"> ₹@Model[13].Price <span> ₹1100.50 </span> </div>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                </div>
+            </a>
+            <a href="@Url.Action("ProductInfo", "Product", new { id = Model[14].BookID})" class="swiper-slide box">
+                <!--2-->
+                <div class="image">
+                    <img src="@Url.Content(Model[14].Image_1)" />
+                </div>
+                <div class="content">
+                    <h3> New Arrival </h3>
+                    <div class="price"> ₹@Model[14].Price <span> ₹821.00 </span> </div>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                </div>
+            </a>
+            <a href="@Url.Action("ProductInfo", "Product", new { id = Model[15].BookID})" class="swiper-slide box">
+                <!--3-->
+                <div class="image">
+                    <img src="@Url.Content(Model[15].Image_1)" />
+                </div>
+                <div class="content">
+                    <h3> New Arrival </h3>
+                    <div class="price"> ₹@Model[15].Price <span> ₹876.34 </span> </div>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                </div>
+            </a>
+            <a href="@Url.Action("ProductInfo", "Product", new { id = Model[16].BookID})" class="swiper-slide box">
+                <!--4-->
+                <div class="image">
+                    <img src="@Url.Content(Model[16].Image_1)" />
+                </div>
+                <div class="content">
+                    <h3> New Arrival </h3>
+                    <div class="price"> ₹@Model[16].Price <span> ₹1890.10 </span> </div>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                </div>
+            </a>
+            <a href="@Url.Action("ProductInfo", "Product", new { id = Model[17].BookID})" class="swiper-slide box">
+                <!--5-->
+                <div class="image">
+                    <img src="@Url.Content(Model[17].Image_1)" />
+                </div>
+                <div class="content">
+                    <h3> New Arrival </h3>
+                    <div class="price"> ₹@Model[17].Price <span> ₹999.00 </span> </div>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="swiper arrivals-slider">
+        <div class="swiper-wrapper">
+            <a href="@Url.Action("ProductInfo", "Product", new { id = Model[18].BookID})" class="swiper-slide box">
+                <!--6-->
+                <div class="image">
+                    <img src="@Url.Content(Model[18].Image_1)" />
+                </div>
+                <div class="content">
+                    <h3> New Arrival </h3>
+                    <div class="price"> ₹@Model[18].Price <span> ₹2000.00 </span> </div>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                </div>
+            </a>
+            <a href="@Url.Action("ProductInfo", "Product", new { id = Model[19].BookID})" class="swiper-slide box">
+                <!--7-->
+                <div class="image">
+                    <img src="@Url.Content(Model[19].Image_1)" />
+                </div>
+                <div class="content">
+                    <h3> New Arrival </h3>
+                    <div class="price"> @Model[19].Price <span> ₹1000.90 </span> </div>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                </div>
+            </a>
+            <a href="@Url.Action("ProductInfo", "Product", new { id = Model[20].BookID})" class="swiper-slide box">
+                <!--8-->
+                <div class="image">
+                    <img src="@Url.Content(Model[20].Image_1)" />           
+                </div>
+                <div class="content">
+                    <h3> New Arrival </h3>
+                    <div class="price"> ₹@Model[20].Price <span> ₹1005.90 </span> </div>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                </div>
+            </a>
+            <a href="@Url.Action("ProductInfo", "Product", new { id = Model[21].BookID})" class="swiper-slide box">
+                <!--9-->
+                <div class="image">
+                    <img src="@Url.Content(Model[21].Image_1)" />
+                </div>
+                <div class="content">
+                    <h3> New Arrival </h3>
+                    <div class="price"> ₹@Model[21].Price <span> ₹915.90 </span> </div>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="swiper-slide box">
+                <!--10-->
+                <div class="image">
+                    <img src="~/Content/Images/The House On Mango street.png" />
+                </div>
+                <div class="content">
+                    <h3> New Arrival </h3>
+                    <div class="price"> $12.45 <span> $15.90 </span> </div>
+                    <div class="star">
+                        <i class=" fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- review -->
+<div class="review">
+    <h1 class="heading"> <span> Customer Reviews </span> </h1>
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    This book store website is very nice. i really happy to use
+                    this website for my book journey and i would like to suggest others this is wounderful book store as a book ocean.
+                    my rating is 4.5 star.
+                </p>
+                <div class="star">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <img src="~/Content/Images/Sophia.png" />
+                <h3> Sophia </h3>
+            </div>
+
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    This book store website is very nice. i really happy to use
+                    this website for my book journey and i would like to suggest others this is wounderful book store as a book ocean.
+                    my rating is 4.5 star.
+                </p>
+                <div class="star">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <img src="~/Content/Images/Patterson.png" />
+                <h3> Patterson </h3>
+            </div>
+
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    This book store website is very nice. i really happy to use
+                    this website for my book journey and i would like to suggest others this is wounderful book store as a book ocean.
+                    my rating is 4.5 star.
+                </p>
+                <div class="star">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <img src="~/Content/Images/James.png" />
+                <h3> James </h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    var swiper = new Swiper(".book-slider", {
+        loop: true,
+        centeredSlide: true,
+        autoplay: {
+            delay: 9500,
+            disaleOnIntraction: false,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+        },
+    });
+
+    var swiper = new Swiper(".featured-slider", {
+        spaceBetween: 90,
+        loop: true,
+        centeredSlide: true,
+        autoplay: {
+            delay: 9500,
+            disaleOnIntraction: false,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            450: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            1024: {
+                slidesPerView: 4,
+            },
+        },
+    });
+
+    var swiper = new Swiper(".arrivals-slider", {
+        spaceBetween: 20,
+        loop: true,
+        centeredSlide: true,
+        autoplay: {
+            delay: 9500,
+            disaleOnIntraction: false,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+        },
+    });
+</script>

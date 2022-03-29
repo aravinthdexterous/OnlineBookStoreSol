@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Online Book Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    @Styles.Render("~/Content/LayoutStyleSheet.css")
+</head>
+<body class="body">
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div>
+                    <a class="navbar-brand" href="#"><i class="fa fa-book"></i> BOOK STORE </a>
+                </div>
+                <form class="search-form">
+                    <input type="search" placeholder="Search here...">
+                    <label class="fa fa-search"> </label>
+                </form>
+                <div class="nav">
+                    <ul>
+                        @if ((string)Session["MailID"] == null && (string)Session["Admin-Username"] == null)
+                        {
+                            <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                            <li>@Html.ActionLink("Register", "SignUp", "Account")</li>
+                        }
+                        else if ((string)Session["Admin-Username"] != null)
+                        {
+                            <li> <h3> Welcome @Session["Admin-Username"]  </h3> </li>
+                            <li>@Html.ActionLink("Logout", "Logout", "Admin")</li>
+                        }
+                        else
+                        {
+                            <li class="profile-icon"> <a href="#" class="fa fa-user-circle" style="font-size: 23px"> Welcome @Session["Username"] </a> </li>
+                            <li class="shopping-icon"> <a onclick="location.href = '@Url.Action("CartItems", "WishList")'"><i class="fa fa-shopping-basket fa-lg"></i> </a> </li>
+                            <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sub-header">
+        <nav class="navbar">
+            @if (((string)Session["Admin-Username"] == null && (string)Session["MailID"] == null) || (string)Session["MailID"] != null)
+            {
+                <a href="#feature"> Featured </a>
+                <a href="#Arrival"> Arrival </a>
+                @Html.ActionLink("Home", "Index", "Home")
+                <a href="#about"> About </a>
+                <a href="#contact"> Contact </a>
+            }
+            else
+            {
+                @Html.ActionLink("Add-Product", "AddProduct", "Product")
+                @Html.ActionLink("Product-Details", "ProductList", "Product")
+                <a href="#about"> About </a>
+                <a href="#contact"> Contact </a>
+            }
+        </nav>
+    </div>
+    @RenderBody()
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3> Download our app </h3>
+                    <p> Download App for Android and ios mobile phone</p>
+                    <div class="app-logo">
+                        <a href="#"> <img src="~/Content/Images/play-store.png" /> </a>
+                        &nbsp; &nbsp;
+                        <a href="#"> <img src="~/Content/Images/app-store.png" /> </a>
+                    </div>
+                </div>
+                <div class="footer-col-2" id="about">
+                    <a class="navbar-brand" href="index.html"><i class="fa fa-book"></i> BOOK STORE </a>
+                    <p> Our purpose is to sustainabily provide ancient to modern books to you.</p>
+                    <p>
+                        We started our book store since 1998, and we proud to say that we got National level award for
+                        <br /> <br /> <span class="box"> Best Book store in india </span>
+                    </p>
+                    <a href="#" class="award"> <img src="~/Content/Images/award.png" /> </a>
+                </div>
+                <div class="footer-col-3" id="contact">
+                    <h3> Contact Info </h3>
+                    <div class="phone">
+                        <a href="#"> <i class="fa fa-phone"></i> &nbsp; +91 6383119028 </a>
+                        <br /> <br />
+                        <a href="#"> <i class="fa fa-phone"></i>  &nbsp; +91 9789609760 </a>
+                        <br /> <br />
+                        <a href="#"> <i class="fa fa-envelope"></i> &nbsp; aravinth@gmail.com </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="icon">
+            <a href="#" class="fa fa-facebook-official fa-3x"></a>
+            <a href="#" class="fa fa-telegram fa-3x"></a>
+            <a href="#" class="fa fa-twitter-square fa-3x"></a>
+            <a href="#" class="fa fa-instagram fa-3x"></a>
+            <a href="#" class="fa fa-pinterest-square fa-3x"></a>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <div class="credit"> created by <span> Mr.Aravinth </span> | all rights reserved! | </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+</body> 
+</html>
+
+<style>
+    .shopping-icon{
+        cursor: pointer;
+    }
+    .nav .shopping-icon a:hover {
+        padding: 10px;
+        border: 1.5px solid #fff;
+    }
+    .nav .profile-icon a:hover {
+        border: 1.5px solid #fff;
+        padding: 10px;
+    }
+</style>
+

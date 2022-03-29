@@ -1,0 +1,81 @@
+﻿@model  List<OnlineBookStore.Models.Product>
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<div style="display: inline-flex">
+    <h2>
+        ProductList
+    </h2>
+    <h2 style="padding-left: 1190px">
+       + @Html.ActionLink("Add New", "AddProduct")
+    </h2>
+</div>
+
+<table class="table" style="width: 70%">
+    <tr>
+        <th> Name </th>
+        <th> Author </th>
+        <th> Image_1 </th>
+        <th> Image_2 </th>
+        <th> Image_3 </th>
+        <th> Image_4 </th>
+        <th> Price </th>
+        <th> Length </th>
+        <th> Language </th>
+        <th> Publication Date </th>
+        <th> Publisher </th>
+        <th> Options </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @item.BookName </td>
+            <td> @item.Author </td>
+            <td> <img src="@Url.Content(@item.Image_1)" width="130" height="220"> </td>
+            <td> <img src="@Url.Content(@item.Image_2)" width="130" height="220"> </td>
+            <td> <img src="@Url.Content(@item.Image_3)" width="130" height="220"> </td>
+            <td> <img src="@Url.Content(@item.Image_4)" width="130" height="220"> </td>
+            <td> @item.Price </td>
+            <td> @item.PrintLength </td>
+            <td> @item.Language </td>
+            <td> @item.PublicationDate </td>
+            <td> @item.Publisher </td>
+            <td>
+                <a href="@Url.Action("EditProduct", "Product", new { id = item.BookID })" class="edit-btn"> Edit </a>
+
+                <a href="@Url.Action("Delete", "Product", new { id = item.BookID } )" class="delete-btn"> Delete </a>
+            </td>
+        </tr>
+    }
+</table>
+<style>
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 6.5px;
+    }
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    .edit-btn {
+        background-color: #008CBA;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 19px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .delete-btn {
+        background-color: #ff0000;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 19px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+</style>

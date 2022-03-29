@@ -1,0 +1,136 @@
+﻿@model OnlineBookStore.Models.Admin
+@{
+    ViewBag.Title = "Admin";
+}
+
+<div class="login-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="~/Content/Images/Login-Image.png" width="400" height="400" />
+            </div>
+            <div class="col-2">
+                <div class="form-container">
+                    <div class="form-btn">
+                        <span> Admin Login </span>
+                        <hr id="Indicator" />
+                    </div>
+                    <div>
+                        @using (Html.BeginForm("AdminLogin", "Admin", FormMethod.Post))
+                        {
+                            <div class="username-block">
+                                @Html.EditorFor(x => x.UserName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
+                                @Html.ValidationMessageFor(x => x.UserName, "", new { @class = "text-danger", @style = "color:red" })
+                            </div>
+                            <div class="password-block">
+                                @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password" } })
+                                @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger", @style = "color:red" })
+                            </div>
+                            <label class="alert-danger"> @Html.DisplayFor(x => x.LoginErrorMessage) </label>
+                            <input type="submit" value="Login" class="btn" />
+                            <a href="#" style="text-decoration: underline; color: blue"> Forgot password </a>
+                            <div>
+                                <p> Back to Customer Login @Html.ActionLink("Customer-Login", "Login", "Account", null, new { @style = "text-decoration:underline; color:blue" }) </p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .login-page {
+        padding: 50px 0;
+        background: radial-gradient(#fff, #87ceeb);
+    }
+
+    .login-page .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding-left: 10px;
+        padding-right: 20px;
+    }
+    .form-container {
+        background: #fff;
+        width: 310px;
+        height: 450px;
+        margin-right: 90px;
+        box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .form-container .form-btn span {
+        font-weight: bold;
+        padding: 40px 10px 0 0;
+        color: #555;
+        cursor: pointer;
+        width: 100px;
+        display: inline-block;
+    }
+
+    .form-container form {
+        max-width: 300px;
+        padding: 70px 5px;
+    }
+
+    form input {
+        width: 85%;
+        height: 30px;
+        margin: 10px 0;
+        padding: 0 10px;
+        border: 1px solid #ccc;
+    }
+
+    .btn {
+        display: inline-block;
+        background: #ff523b;
+        color: #fff;
+        padding: 8px 30px;
+        margin: 30px 0;
+        border-radius: 6px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #e6351e;
+    }
+
+    form .btn {
+        width: 95%;
+        border: none;
+        cursor: pointer;
+        margin: 10px 0;
+    }
+
+    form a {
+        font-size: 12px;
+    }
+
+    #Indicator {
+        width: 100px;
+        border: none;
+        background: #ff523b;
+        height: 3px;
+        margin-top: 8px;
+        transform: translateX(-2px);
+    }
+
+    .alert-danger {
+        color: red;
+    }
+
+    p {
+        font-size: 15px;
+        color: darkgreen;
+        font-weight: 600;
+    }
+    input:focus {
+        outline: none;
+    }
+</style>

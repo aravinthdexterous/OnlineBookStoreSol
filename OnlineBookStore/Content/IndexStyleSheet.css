@@ -1,0 +1,299 @@
+﻿.p {
+        color: #222;
+        font-size: 17px;
+    }
+
+    .home .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding-left: 50px;
+        padding-right: 20px;
+    }
+
+    .col-2 {
+        flex-basis: 50%;
+        min-width: 300px;
+    }
+
+        .col-2 h1 {
+            font-size: 40px;
+            line-height: 60px;
+            margin: 25px 0;
+            color: #333;
+        }
+
+    .btn {
+        display: inline-block;
+        background: #ff523b;
+        color: #fff;
+        padding: 8px 30px;
+        margin: 30px 0;
+        border-radius: 6px;
+        transition: 0.3s;
+    }
+
+        .btn:hover {
+            background: #e6351e;
+        }
+
+    .home .row {
+        background: radial-gradient(#fff, #ffc0cb);
+    }
+
+    .col-2 .book-slider {
+        margin-top: 100px;
+    }
+
+    .book-slider .wrapper {
+        padding-top: 40px;
+    }
+
+    .book-slider a img {
+        height: 17rem;
+        margin: 4px;
+    }
+
+    .book-slider a:hover img {
+        transform: scale(0.9);
+    }
+
+    .book-slider .stand {
+        width: 100%;
+    }
+
+    /*featured section*/
+
+    .heading {
+        text-align: center;
+        margin-top: 6rem;
+        margin-bottom: 2rem;
+        position: relative;
+    }
+
+        .heading::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 0.01rem;
+            background: rgba(0,0,0,0.3);
+            z-index: -1;
+        }
+
+        .heading span {
+            font-size: 2rem;
+            padding: 0.5rem 2rem;
+            color: #333;
+            background: #fff;
+        }
+
+    .featured .featured-slider .box {
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        height: 450px;
+        border: 0.2rem solid #DCDCDC;
+    }
+
+        .featured .featured-slider .box:hover {
+            border: 1px solid gray;
+        }
+
+    .featured .featured-slider .box {
+        background: linear-gradient(25deg, #ffc0cb 50%, #fff 30.1%);
+    }
+
+        .featured .featured-slider .box:hover .image {
+            transform: translateY(1rem);
+        }
+
+        .featured .featured-slider .box .image img {
+            height: 16rem;
+            width: 11rem;
+            padding-top: 10px
+        }
+
+        .featured .featured-slider .box .details {
+            padding: 0.05rem;
+        }
+
+            .featured .featured-slider .box .details h3 {
+                margin: 10px 0;
+                font-size: 1.4rem;
+                color: #27ae60;
+            }
+
+            .featured .featured-slider .box .details .price {
+                font-size: 1.4rem;
+                color: black;
+                padding-top: 0.5rem;
+            }
+
+                .featured .featured-slider .box .details .price span {
+                    font-size: 1rem;
+                    color: #666;
+                    text-decoration: line-through;
+                }
+
+        .featured .featured-slider .box .btn {
+            display: inline-block;
+            background: #ff523b;
+            color: #fff;
+            padding: 8px 30px;
+            margin: 10px 0;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+            .featured .featured-slider .box .btn:hover {
+                background: #e6351e;
+            }
+
+    /* deal */
+    .deal {
+        background: radial-gradient(#fff, #ffc0cb);
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 100px;
+        padding-left: 50px;
+        padding-right: 20px;
+    }
+
+        .deal .small-container {
+            flex: 2rem;
+        }
+
+        .deal .image {
+            flex: 2rem;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+            .deal .image img {
+                width: 40rem;
+                height: 30rem;
+            }
+
+        .deal .small-container h3 {
+            font-size: 1.7rem;
+            padding-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .deal .small-container h1 {
+            font-size: 2.2rem;
+            color: #222;
+        }
+
+        .deal .small-container p {
+            color: #000;
+            font-size: 17px;
+            padding-bottom: 0.5rem;
+        }
+
+        .deal .btn:hover {
+            background: #e6351e;
+        }
+
+    /* New Arrival */
+    .arrival .arrivals-slider .box {
+        display: flex;
+        align-items: center;
+        gap: 5rem;
+        padding: 20px 5px;
+        border: 0.2rem solid #DCDCDC;
+        margin: 1rem 0;
+        background: linear-gradient(50deg, #ffc0cb 50%, #fff 30.1%);
+    }
+
+        .arrival .arrivals-slider .box:hover {
+            border: 1px solid gray;
+        }
+
+        .arrival .arrivals-slider .box .image img {
+            height: 12rem;
+            padding-left: 10px;
+        }
+
+        .arrival .arrivals-slider .box .content h3 {
+            font-size: 1.5rem;
+            color: #27ae60;
+        }
+
+        .arrival .arrivals-slider .box .content .price {
+            font-size: 1.5rem;
+            color: black;
+            padding-bottom: 1rem;
+        }
+
+            .arrival .arrivals-slider .box .content .price span {
+                font-size: 1.3rem;
+                color: #444;
+                text-decoration: line-through;
+            }
+
+        .arrival .arrivals-slider .box .content .star i {
+            font-size: 1.5rem;
+            color: #ff523b;
+        }
+
+    /* Review */
+    .review {
+        padding-top: 50px;
+    }
+
+        .review .heading {
+            padding-bottom: 20px;
+        }
+
+        .review .row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .review .col-3 {
+            text-align: center;
+            flex-basis: 30%;
+            border: 0.2rem solid #DCDCDC;
+            box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: 0.5s;
+            padding: 20px 0;
+            background: linear-gradient(50deg, #ffc0cb 50%, #fff 30.1%);
+        }
+
+            .review .col-3:hover {
+                transform: translateY(-10px);
+            }
+
+            .review .col-3 img {
+                width: 90px;
+                margin-top: 20px;
+                border-radius: 25%;
+            }
+
+    .col-3 .star {
+        font-size: 1.5rem;
+        color: #ff523b;
+    }
+
+    .fa.fa-quote-left {
+        font-size: 3rem;
+        color: #ff523b;
+    }
+
+    .review p {
+        font-size: 20px;
+    }
+
+    .review h3 {
+        font-size: 25px;
+    }

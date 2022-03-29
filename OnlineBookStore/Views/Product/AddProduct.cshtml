@@ -1,0 +1,125 @@
+﻿@model OnlineBookStore.Models.Product
+
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="Admin-container">
+        <h2>Add Products</h2>
+        <div class="form-group">
+            @Html.HiddenFor(x => x.BookID)
+            <label> Book Name </label>
+            @Html.TextBoxFor(x => x.BookName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Author </label>
+            @Html.TextBoxFor(x => x.Author, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Image-1 </label>
+            <input type="file" name="ImageFile1" required />
+        </div>
+        <div class="form-group">
+            <label> Image-2 </label>
+            <input type="file" name="ImageFile2" required />
+        </div>
+        <div class="form-group">
+            <label> Image-3 </label>
+            <input type="file" name="ImageFile3" required />
+        </div>
+        <div class="form-group">
+            <label> Image-4 </label>
+            <input type="file" name="ImageFile4" required />
+        </div>
+        <div class="form-group">
+            <label> Price </label>
+            @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Print length </label>
+            @Html.TextBoxFor(x => x.PrintLength, new { @class = "form-control", @type = "number" })
+        </div>
+        <div class="form-group">
+            <label> Language </label>
+            @Html.TextBoxFor(x => x.Language, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Publication Date </label>
+            @Html.TextBoxFor(x => x.PublicationDate, new { @class = "form-control",  @type = "date" })
+        </div>
+        <div class="form-group">
+            <label> Publisher </label>
+            @Html.TextBoxFor(x => x.Publisher, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label> Description </label>
+            @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <button type="submit" class="add-btn"> Add </button>
+            <button type="reset" class="cancel-btn"> cancel </button>
+        </div>
+    </div>
+ }
+
+<div>
+    @Html.ActionLink("Back to List", "ProductList")
+</div>
+
+<style>
+    .Admin-container {
+        padding: 10px;
+    }
+    .form-group {
+        padding: 1rem 0 0 10rem;
+    }
+    .form-group label {
+        font-size: 20px;
+    }
+    .form-group input {
+        width: 300px;
+        height: 30px;
+        display: flex;
+        border-radius: 5px;
+        border-color: #222;
+        font-size: 20px;
+        padding-left: 10px;
+    }
+    .form-group textarea {
+        width: 320px;
+        height: 80px;
+        display: flex;
+        border-radius: 5px;
+        border-color: #222;
+        font-size: 20px;
+        padding-left: 10px;
+    }
+    .add-btn{
+        width: 130px;
+        height: 40px;
+        background-color: #27ae60;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 19px;
+    }
+    .cancel-btn {
+        width: 130px;
+        height: 40px;
+        background-color: #ff0000;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 19px;
+    }
+    input:focus {
+        outline: none;
+    }
+    textarea:focus {
+        outline: none;
+    }
+</style>
